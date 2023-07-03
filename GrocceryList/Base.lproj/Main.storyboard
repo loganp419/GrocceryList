@@ -40,7 +40,14 @@
                             <constraint firstItem="Lyc-5L-H8q" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="wtE-Fz-c1x"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="z1P-Iq-ZQ2"/>
+                    <navigationItem key="navigationItem" id="z1P-Iq-ZQ2">
+                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="Phg-Kw-m3T">
+                            <color key="tintColor" systemColor="systemRedColor"/>
+                            <connections>
+                                <action selector="AddItem:" destination="BYZ-38-t0r" id="7AP-eW-1zb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="Lyc-5L-H8q" id="FCR-jI-LhE"/>
                     </connections>
@@ -68,9 +75,16 @@
             <point key="canvasLocation" x="130.53435114503816" y="-27.464788732394368"/>
         </scene>
     </scenes>
+    <color key="tintColor" systemColor="systemPinkColor"/>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
