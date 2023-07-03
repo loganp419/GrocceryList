@@ -19,7 +19,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.dataSource = self
     }
     @IBAction func AddItem(_ sender: Any) {
-    let alert = UIAlertController(title: "Add an Item", message: nil , preferredStyle: .alert)
+        let alert = UIAlertController(title: "Add an Item", message: nil , preferredStyle: .alert)
         
         alert.addTextField { field in
             field.placeholder = "type here"
@@ -29,17 +29,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             let fields = alert.textFields
             let itemTextField = fields![0]
             let items = itemTextField.text!
-           print(items)
+            print(items)
             itemsDestination.append(items)
-       print(itemsDestination)
+            print(itemsDestination)
             tableView.reloadData()
         }))
         self.present(alert, animated: true, completion: nil)
-   
+        
     }
-    
-    
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return itemsDestination.count
     }
@@ -48,5 +45,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.textLabel?.text = itemsDestination[indexPath.row
         ]
         return cell
+    }
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            
+            itemsDestination.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
     }
 }
