@@ -42,9 +42,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = itemsDestination[indexPath.row
-        ]
+        cell.textLabel?.text = itemsDestination[indexPath.row]
+        
+        let mySwitch = UISwitch()
+        mySwitch.addTarget(self, action: #selector(didChangeSwitch(_:)), for: .valueChanged)
+        cell.accessoryView = mySwitch
         return cell
+    }
+    @objc func didChangeSwitch(_ sender: UISwitch) {
+        if sender.isOn {
+            print("item recieved")
+        }else{
+            print("item not found")
+        }
     }
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
@@ -56,4 +66,5 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
+
 }
