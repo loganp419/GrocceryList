@@ -11,7 +11,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var tableView: UITableView!
     
-    var itemsDestination = ["A","B","C"]
+    var itemsDestination : [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,4 +67,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
 
+    
+    
 }
