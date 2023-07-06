@@ -6,15 +6,17 @@
 //
 
 import UIKit
-
+import FirebaseDatabase
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
-    
+   
+    let dataBase = Database.database().reference()
     var itemsDestination : [String] = []
-    
+var number = 0
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -33,6 +35,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             itemsDestination.append(items)
             print(itemsDestination)
             tableView.reloadData()
+            
+            self.dataBase.child("Items").child("itemsDestination\(number)").setValue("\(items)")
+            number+=1
+            
+            
+            
         }))
         self.present(alert, animated: true, completion: nil)
         
